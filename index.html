@@ -333,25 +333,25 @@
     }
 /* استجابة الهواتف */
 @media (max-width: 768px) {
-  nav {
-    position: fixed;
-    top: 70px;
-    right: 0;
-    background-color: var(--primary);
-    height: calc(100% - 70px);
-    width: 260px;
-    flex-direction: column;
-    padding-top: 2.25rem;
-    transform: translateX(100%);
-    transition: transform 0.35s ease;
-    box-shadow: -6px 0 16px rgba(13,148,136,0.6);
-    border-left: 6px solid var(--secondary);
-    z-index: 1100;
-  }
-
-  nav.active {
-    transform: translateX(0);
-  }
+     nav {
+       width: 100%; /* بدلاً من 260px */
+       max-width: 100%; /* للتأكد */
+       top: 70px;
+       right: 0;
+       height: calc(100% - 70px);
+       padding-top: 2rem;
+       transform: translateX(100%);
+       transition: transform 0.35s ease;
+       box-shadow: none;
+       border-left: none; /* إزالة الحد الأيسر */
+       background-color: var(--primary);
+       z-index: 1100;
+     }
+     nav.open {
+       transform: translateX(0);
+     }
+   }
+   
 
   nav a {
     padding: 1.4rem 2rem;
@@ -1221,5 +1221,6 @@ overlay.addEventListener('click', () => {
   </script>
 </body>
 </html>
+
 
 
