@@ -6,9 +6,7 @@
   <title>Ciliac.dz - منصة السيلياك الرقمية 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    * {
-            box-sizing: border-box;
-        }
+    
     :root {
       --primary: #10b5b8;
       --secondary: #f97316;
@@ -584,6 +582,35 @@
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
 }
+    /* يخلي الصور تتقلص مع الشاشة */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* يخلي النصوص تحت السيطرة في الهاتف */
+body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+}
+/* إخفاء الشريط افتراضياً في الهاتف */
+.sidebar {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+/* لما يضيف له كلاس open يظهر */
+.sidebar.open {
+  transform: translateX(0);
+}
+
 
 /* إزالة الخلفية البيضاء نهائياً (قوية - تتجاوز قواعد أخرى) */
 .stats-health .stat-item {
@@ -691,6 +718,7 @@
 <body>
   <header>
     
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <div class="logo">
   <img src="images/logo.png" alt="Ciliac.dz Logo" style="height:50px; vertical-align:middle; margin-left:10px;">
@@ -1243,6 +1271,14 @@ overlay.addEventListener('click', () => {
   nav.classList.remove('open');
   overlay.classList.remove('active');
 });
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const sidebar = document.querySelector('.sidebar');
+
+  menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+  });
+</script>
 
 </script>
  <script>
@@ -1263,4 +1299,5 @@ overlay.addEventListener('click', () => {
 
 </body>
 </html>
+
 
