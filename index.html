@@ -331,48 +331,70 @@
       background-color: #134e4a;
       box-shadow: 0 -4px 12px rgba(0,0,0,0.6);
     }
-    /* استجابة الهواتف */
-    @media (max-width: 768px) {
-      nav {
-        position: fixed;
-        top: 70px;
-        right: 0;
-        background-color: var(--primary);
-        height: calc(100% - 70px);
-        width: 260px;
-        flex-direction: column;
-        padding-top: 2.25rem;
-        transform: translateX(100%);
-        transition: transform 0.35s ease;
-        box-shadow: -6px 0 16px rgba(13,148,136,0.6);
-        border-left: 6px solid var(--secondary);
-        z-index: 1100;
-      }
-      nav.active {
-        transform: translateX(0);
-      }
-      nav a {
-        padding: 1.4rem 2rem;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
-        font-size: 1.25rem;
-      }
-      .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        cursor: pointer;
-        user-select: none;
-        padding: 0.5rem;
-      }
-      .menu-toggle div {
-        width: 28px;
-        height: 3.5px;
-        background-color: white;
-        border-radius: 3px;
-        transition: all 0.3s ease;
-      }
-    }
-    /* قائمة منسدلة */
+/* استجابة الهواتف */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    background-color: var(--primary);
+    height: calc(100% - 70px);
+    width: 260px;
+    flex-direction: column;
+    padding-top: 2.25rem;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    box-shadow: -6px 0 16px rgba(13,148,136,0.6);
+    border-left: 6px solid var(--secondary);
+    z-index: 1100;
+  }
+
+  nav.active {
+    transform: translateX(0);
+  }
+
+  nav a {
+    padding: 1.4rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    font-size: 1.25rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.5rem;
+    z-index: 1200; /* فوق التغطية */
+  }
+
+  .menu-toggle div {
+    width: 28px;
+    height: 3.5px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  /* طبقة التغطية */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    height: calc(100% - 70px);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+}
+
+/* قائمة منسدلة */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -404,6 +426,7 @@
 .dropdown-content a:hover {
   background-color: var(--secondary);
 }
+
 
 /* إظهار القائمة عند التمرير */
 .dropdown:hover .dropdown-content {
@@ -547,8 +570,6 @@
   .counter { font-size: 2.2rem; }
   .stat-item { padding: 22px 14px; border-radius: 14px; }
   .stat-icon { width: 64px; height: 64px; }
-}
-@media (max-width: 600px) {
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
 }
@@ -611,8 +632,8 @@
   <header>
     
 
-    <div class="Logo">
-  <img src="images/Logo.png" alt="Ciliac.dz Logo" style="height:50px; vertical-align:middle; margin-left:10px;">
+    <div class="logo">
+  <img src="images/logo.png" alt="Ciliac.dz Logo" style="height:50px; vertical-align:middle; margin-left:10px;">
   <span>Ciliac.dz</span>
 </div>
 
@@ -653,7 +674,8 @@
 </div>
 
     </nav>
-    
+<div class="overlay"></div>
+
     <select class="lang-select" aria-label="اختيار اللغة">
       <option value="ar" selected>العربية</option>
       <option value="en">English</option>
@@ -664,7 +686,7 @@
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <img src="images/Logo.png" alt="Ciliac.dz Logo" class="hero-logo">
+      <img src="images/logo.png" alt="Ciliac.dz Logo" class="hero-logo">
       <h1>مرحبًا بكم في Ciliac.dz</h1>
       <p>منصتكم الرقمية الأولى لحياة خالية من الغلوتين وصحة أفضل</p>
       <a href="#services" class="cta-btn">✨ اكتشف خدماتنا</a>
@@ -802,7 +824,7 @@
   <div class="team-member">
     <img src="https://via.placeholder.com/100" alt="صورة العضو 2" />
     <h4 data-i18n="teamTitle2">بروفيسورة عطو فوزية</h4>
-    <p data-i18n="teamText2">  </p>
+    <p data-i18n="teamText2">مسؤولة تسويق</p>
   </div>
 </div>
 </section>
@@ -1143,10 +1165,20 @@ document.addEventListener('click', () => {
 <a href="https://wa.me/213783321319" class="whatsapp-float" target="_blank" aria-label="تواصل عبر واتساب">
   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
 </a>
+<script>
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+const overlay = document.querySelector('.overlay');
 
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  overlay.classList.toggle('active');
+});
+
+overlay.addEventListener('click', () => {
+  nav.classList.remove('active');
+  overlay.classList.remove('active');
+});
+</script>
 </body>
-
 </html>
-
-
-
