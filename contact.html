@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تواصل معنا - CILIAC.DZ</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { background: #f0f4f8; color: #333; line-height: 1.6; padding: 30px 15px; }
+    header { text-align: center; margin-bottom: 40px; }
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; color: #007c91; }
+    .lang-switch { text-align: center; margin-bottom: 30px; }
+    .lang-switch button { margin: 0 5px; padding: 8px 15px; border: none; border-radius: 10px; background: #00acc1cc; color: #fff; cursor: pointer; transition: 0.3s; }
+    .lang-switch button:hover { background: #00acc1; }
+    .contact-section { max-width: 700px; margin: auto; background: #ffffff; padding: 30px 20px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); text-align: center; }
+    .contact-section h2 { margin-bottom: 20px; font-size: 1.8rem; color: #007c91; }
+    .contact-info { margin: 15px 0; font-size: 1.1rem; }
+    .contact-info a { color: #007c91; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
+    .back-btn { display: block; width: fit-content; margin: 30px auto 0; text-decoration: none; background: #007c91; color: #fff; padding: 12px 25px; border-radius: 10px; transition: 0.3s ease; }
+    .back-btn:hover { background: #005f66; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="pageTitle">📩 تواصل معنا</h1>
+  </header>
+
+  <div class="lang-switch">
+    <button onclick="setLang('ar')">العربية</button>
+    <button onclick="setLang('fr')">Français</button>
+    <button onclick="setLang('en')">English</button>
+  </div>
+
+  <div class="contact-section">
+    <h2 id="contactTitle">يمكنك التواصل معنا عبر:</h2>
+    <div class="contact-info" id="emailInfo">📧 البريد الإلكتروني: <a href="mailto:glutenfrecilaic.dz@gmail.com">glutenfrecilaic.dz@gmail.com</a></div>
+    <div class="contact-info" id="phoneInfo">📞 الهاتف: <a href="tel:0783321319">0783321319</a></div>
+    <div class="contact-info" id="facebookInfo">📘 الفيسبوك: <a href="https://www.facebook.com/ciliac.dz" target="_blank">ciliac.dz</a></div>
+    <div class="contact-info" id="groupInfo">👥 قروب المشاركين: <a href="#" target="_blank">انضم هنا</a></div>
+  </div>
+
+  <a href="eee.html" class="back-btn">⬅ العودة للصفحة الرئيسية</a>
+
+  <script>
+    const content = {
+      ar: {
+        pageTitle: "📩 تواصل معنا",
+        contactTitle: "يمكنك التواصل معنا عبر:",
+        emailInfo: "📧 البريد الإلكتروني: <a href='mailto:glutenfrecilaic.dz@gmail.com'>glutenfrecilaic.dz@gmail.com</a>",
+        phoneInfo: "📞 الهاتف: <a href='tel:0783321319'>0783321319</a>",
+        facebookInfo: "📘 الفيسبوك: <a href='https://www.facebook.com/ciliac.dz' target='_blank'>ciliac.dz</a>",
+        groupInfo: "👥 قروب المشاركين: <a href='#' target='_blank'>انضم هنا</a>"
+      },
+      fr: {
+        pageTitle: "📩 Contactez-nous",
+        contactTitle: "Vous pouvez nous contacter via:",
+        emailInfo: "📧 Email : <a href='mailto:glutenfrecilaic.dz@gmail.com'>glutenfrecilaic.dz@gmail.com</a>",
+        phoneInfo: "📞 Téléphone : <a href='tel:0783321319'>0783321319</a>",
+        facebookInfo: "📘 Facebook : <a href='https://www.facebook.com/ciliac.dz' target='_blank'>ciliac.dz</a>",
+        groupInfo: "👥 Groupe des participants : <a href='#' target='_blank'>Rejoignez ici</a>"
+      },
+      en: {
+        pageTitle: "📩 Contact Us",
+        contactTitle: "You can contact us via:",
+        emailInfo: "📧 Email: <a href='mailto:glutenfrecilaic.dz@gmail.com'>glutenfrecilaic.dz@gmail.com</a>",
+        phoneInfo: "📞 Phone: <a href='tel:0783321319'>0783321319</a>",
+        facebookInfo: "📘 Facebook: <a href='https://www.facebook.com/ciliac.dz' target='_blank'>ciliac.dz</a>",
+        groupInfo: "👥 Participants Group: <a href='#' target='_blank'>Join here</a>"
+      }
+    };
+
+    function setLang(lang){
+      document.getElementById('pageTitle').innerHTML = content[lang].pageTitle;
+      document.getElementById('contactTitle').innerHTML = content[lang].contactTitle;
+      document.getElementById('emailInfo').innerHTML = content[lang].emailInfo;
+      document.getElementById('phoneInfo').innerHTML = content[lang].phoneInfo;
+      document.getElementById('facebookInfo').innerHTML = content[lang].facebookInfo;
+      document.getElementById('groupInfo').innerHTML = content[lang].groupInfo;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    }
+
+    setLang('ar');
+  </script>
+
+</body>
+</html>

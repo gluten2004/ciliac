@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>آخر المستجدات والبحوث - CILIAC.DZ</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+      background:linear-gradient(135deg,#c9ffbf,#ffafbd);
+      color:#333;padding:30px 15px;line-height:1.7}
+    header{text-align:center;margin-bottom:35px;color:#333}
+    header h1{font-size:2.5rem;margin-bottom:10px}
+    header p{font-size:1.2rem;opacity:0.8}
+    .lang-switch{text-align:center;margin-bottom:25px}
+    .lang-switch button{
+      margin:0 5px;padding:8px 15px;border:none;border-radius:10px;
+      background:#56ab2f;color:#fff;cursor:pointer;transition:.3s}
+    .lang-switch button:hover{background:#3b7d20}
+    .news-container{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:25px}
+    .news-card{
+      background:rgba(255,255,255,0.8);border-radius:15px;padding:20px;
+      backdrop-filter:blur(6px);box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transition:transform .3s}
+    .news-card:hover{transform:translateY(-5px)}
+    .news-card h3{color:#2b7a0b;margin-bottom:10px}
+    .news-card p{font-size:.95rem;margin-bottom:15px}
+    .news-card a{
+      display:inline-block;color:#fff;background:#56ab2f;
+      padding:8px 15px;border-radius:8px;text-decoration:none;font-size:.9rem}
+    .news-card a:hover{background:#3b7d20}
+    .back-home{
+      display:block;text-align:center;margin-top:40px;text-decoration:none;
+      color:#333;font-weight:bold;font-size:1.1rem}
+    .back-btn{display:block;width:fit-content;margin:40px auto 0;text-decoration:none;background:#caff61;color:#fff;padding:12px 25px;border-radius:10px;transition:background 0.3s ease;}
+    .back-btn:hover{background:#1b5e20;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="pageTitle">🧪 آخر المستجدات والبحوث</h1>
+    <p id="pageSubtitle">تابع أحدث الدراسات والابتكارات حول مرض السيلياك</p>
+  </header>
+
+  <div class="lang-switch">
+    <button onclick="renderNews('ar')">العربية</button>
+    <button onclick="renderNews('fr')">Français</button>
+    <button onclick="renderNews('en')">English</button>
+  </div>
+
+  <section class="news-container" id="news-list">
+    <!-- المقالات تضاف أوتوماتيكياً من JavaScript -->
+  </section>
+
+  <a href="eee.html" class="back-home">⬅ العودة إلى الصفحة الرئيسية</a>
+
+  <script>
+    const newsData = [
+      {
+        ar: {title:"🧬 دراسة جديدة عن ميكروبيوتا الأمعاء",
+             text:"باحثون يكتشفون دور البكتيريا النافعة في تحسين امتصاص العناصر الغذائية لدى مرضى السيلياك.",
+             link:"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8489465/"},
+        fr: {title:"🧬 Nouvelle étude sur le microbiote intestinal",
+             text:"Des chercheurs découvrent le rôle des bonnes bactéries dans l’absorption des nutriments chez les patients atteints de la maladie cœliaque.",
+             link:"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8489465/"},
+        en: {title:"🧬 New Study on Gut Microbiota",
+             text:"Researchers discover the role of beneficial bacteria in improving nutrient absorption in celiac patients.",
+             link:"https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8489465/"}
+      },
+      {
+        ar: {title:"🥖 تطوير خبز خالٍ من الغلوتين محسّن",
+             text:"فريق بحثي ينجح في تحسين المذاق والقيمة الغذائية لمنتجات خالية من الغلوتين باستخدام تقنيات التخمير الحيوي.",
+             link:"https://www.sciencedirect.com/science/article/pii/S0963996922000149"},
+        fr: {title:"🥖 Développement de pain sans gluten amélioré",
+             text:"Une équipe de recherche améliore le goût et la valeur nutritionnelle des produits sans gluten grâce à la fermentation bio.",
+             link:"https://www.sciencedirect.com/science/article/pii/S0963996922000149"},
+        en: {title:"🥖 Improved Gluten-Free Bread Development",
+             text:"Research team enhances taste and nutritional value of gluten-free products using bio-fermentation techniques.",
+             link:"https://www.sciencedirect.com/science/article/pii/S0963996922000149"}
+      },
+      {
+        ar: {title:"🧠 العلاقة بين السيلياك والصحة النفسية",
+             text:"دراسة تربط بين نقص بعض الفيتامينات الناتج عن السيلياك وبين زيادة القلق والاكتئاب.",
+             link:"https://pubmed.ncbi.nlm.nih.gov/33650848/"},
+        fr: {title:"🧠 Relation entre cœliaque et santé mentale",
+             text:"Une étude relie certaines carences vitaminiques dues à la maladie cœliaque à une augmentation de l’anxiété et de la dépression.",
+             link:"https://pubmed.ncbi.nlm.nih.gov/33650848/"},
+        en: {title:"🧠 Celiac Disease and Mental Health",
+             text:"Study links certain vitamin deficiencies from celiac disease to increased anxiety and depression.",
+             link:"https://pubmed.ncbi.nlm.nih.gov/33650848/"}
+      },
+            {
+        ar: {
+          title: "🥦 أهمية النظام الغذائي الخالي من الغلوتين للأطفال",
+          text: "أطباء يؤكدون أن التزام الأطفال بنظام غذائي صارم خالٍ من الغلوتين يحسن نموهم ويقلل من المضاعفات.",
+          link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7992743/"
+        },
+        fr: {
+          title: "🥦 Importance du régime sans gluten chez les enfants",
+          text: "Les médecins confirment que suivre un régime strict sans gluten améliore la croissance des enfants et réduit les complications.",
+          link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7992743/"
+        },
+        en: {
+          title: "🥦 Importance of Gluten-Free Diet in Children",
+          text: "Doctors confirm that a strict gluten-free diet improves children’s growth and reduces complications.",
+          link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7992743/"
+        }
+      },
+      {
+        ar: {
+          title: "🥗 السيلياك ونقص الفيتامينات",
+          text: "دراسة حديثة توضح العلاقة بين مرض السيلياك ونقص فيتامين D والحديد وتأثيرهما على المناعة.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/36427824/"
+        },
+        fr: {
+          title: "🥗 Maladie cœliaque et carences en vitamines",
+          text: "Une étude récente montre le lien entre la maladie cœliaque, la carence en vitamine D et en fer, et leur impact sur l’immunité.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/36427824/"
+        },
+        en: {
+          title: "🥗 Celiac Disease and Vitamin Deficiencies",
+          text: "A recent study highlights the link between celiac disease, vitamin D and iron deficiency, and their impact on immunity.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/36427824/"
+        }
+      },
+      {
+        ar: {
+          title: "⚽ النشاط البدني لمرضى السيلياك",
+          text: "الرياضة المعتدلة مع التغذية السليمة تساعد المرضى على تحسين مستويات الطاقة ونوعية الحياة.",
+          link: "https://celiac.org/about-the-foundation/featured-news/2020/05/exercise-and-celiac/"
+        },
+        fr: {
+          title: "⚽ Activité physique chez les patients cœliaques",
+          text: "Une activité physique modérée associée à une alimentation adaptée améliore l’énergie et la qualité de vie.",
+          link: "https://celiac.org/about-the-foundation/featured-news/2020/05/exercise-and-celiac/"
+        },
+        en: {
+          title: "⚽ Physical Activity for Celiac Patients",
+          text: "Moderate exercise with proper nutrition helps improve energy levels and quality of life.",
+          link: "https://celiac.org/about-the-foundation/featured-news/2020/05/exercise-and-celiac/"
+        }
+      },
+      {
+        ar: {
+          title: "🧪 طرق جديدة للتشخيص المبكر",
+          text: "العلماء يطورون اختبارات دم أكثر دقة للكشف المبكر عن مرض السيلياك حتى بدون أعراض واضحة.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/36511879/"
+        },
+        fr: {
+          title: "🧪 Nouvelles méthodes de diagnostic précoce",
+          text: "Les chercheurs développent des tests sanguins plus précis pour détecter précocement la maladie cœliaque.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/36511879/"
+        },
+        en: {
+          title: "🧪 New Early Diagnosis Methods",
+          text: "Researchers are developing more accurate blood tests to detect celiac disease early, even without clear symptoms.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/36511879/"
+        }
+      },
+      {
+        ar: {
+          title: "🍞 بدائل مبتكرة للغلوتين",
+          text: "شركات ناشئة تقدم بدائل نباتية جديدة للغلوتين تعزز القوام والطعم في المخبوزات.",
+          link: "https://www.sciencedirect.com/science/article/pii/S1878450X21000690"
+        },
+        fr: {
+          title: "🍞 Alternatives innovantes au gluten",
+          text: "Des start-ups développent de nouvelles alternatives végétales pour améliorer la texture et le goût des produits de boulangerie.",
+          link: "https://www.sciencedirect.com/science/article/pii/S1878450X21000690"
+        },
+        en: {
+          title: "🍞 Innovative Gluten Alternatives",
+          text: "Startups are creating new plant-based gluten alternatives that improve texture and taste in baked goods.",
+          link: "https://www.sciencedirect.com/science/article/pii/S1878450X21000690"
+        }
+      },
+      {
+        ar: {
+          title: "👩‍👩‍👧 الدعم العائلي لمرضى السيلياك",
+          text: "الدعم النفسي والعاطفي من الأسرة يلعب دوراً رئيسياً في التزام المرضى بالنظام الغذائي.",
+          link: "https://celiac.org/about-celiac-disease/treatment/nutrition/"
+        },
+        fr: {
+          title: "👩‍👩‍👧 Soutien familial et maladie cœliaque",
+          text: "Le soutien psychologique et émotionnel de la famille joue un rôle clé dans le respect du régime alimentaire.",
+          link: "https://celiac.org/about-celiac-disease/treatment/nutrition/"
+        },
+        en: {
+          title: "👩‍👩‍👧 Family Support for Celiac Patients",
+          text: "Psychological and emotional family support plays a key role in patients’ adherence to the diet.",
+          link: "https://celiac.org/about-celiac-disease/treatment/nutrition/"
+        }
+      },
+      {
+        ar: {
+          title: "🍎 السيلياك وصحة العظام",
+          text: "الدراسات تظهر أن مرضى السيلياك غير المشخصين معرضون لهشاشة العظام مبكراً.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/29551754/"
+        },
+        fr: {
+          title: "🍎 Maladie cœliaque et santé osseuse",
+          text: "Les études montrent que les patients non diagnostiqués sont plus exposés à l’ostéoporose précoce.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/29551754/"
+        },
+        en: {
+          title: "🍎 Celiac Disease and Bone Health",
+          text: "Studies show that undiagnosed celiac patients are at higher risk of early osteoporosis.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/29551754/"
+        }
+      },
+      {
+        ar: {
+          title: "🍼 السيلياك عند الرضع",
+          text: "أبحاث تدرس تأثير إدخال الغلوتين المبكر في تغذية الرضع على احتمالية الإصابة بالسيلياك.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/34399889/"
+        },
+        fr: {
+          title: "🍼 Maladie cœliaque chez les nourrissons",
+          text: "Les recherches analysent l’effet de l’introduction précoce du gluten dans l’alimentation des nourrissons sur le risque de cœliaque.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/34399889/"
+        },
+        en: {
+          title: "🍼 Celiac Disease in Infants",
+          text: "Research explores the impact of early gluten introduction in infants’ diets on the risk of celiac disease.",
+          link: "https://pubmed.ncbi.nlm.nih.gov/34399889/"
+        }
+      },
+      {
+        ar: {
+          title: "🧑‍⚕️ العلاجات المستقبلية",
+          text: "تجارب سريرية على أدوية جديدة قد تساعد في تقليل استجابة الجهاز المناعي للغلوتين.",
+          link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9020109/"
+        },
+        fr: {
+          title: "🧑‍⚕️ Thérapies futures",
+          text: "Des essais cliniques sur de nouveaux médicaments pourraient réduire la réponse immunitaire au gluten.",
+          link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9020109/"
+        },
+        en: {
+          title: "🧑‍⚕️ Future Therapies",
+          text: "Clinical trials on new drugs may help reduce the immune system’s response to gluten.",
+          link: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9020109/"
+        }
+      }
+
+    ];
+
+    const translations = {
+      ar: { pageTitle:"🧪 آخر المستجدات والبحوث",
+            pageSubtitle:"تابع أحدث الدراسات والابتكارات حول مرض السيلياك",
+            readMore:"قراءة المزيد"},
+      fr: { pageTitle:"🧪 Actualités et recherches",
+            pageSubtitle:"Suivez les dernières études et innovations sur la maladie cœliaque",
+            readMore:"Lire plus"},
+      en: { pageTitle:"🧪 Latest Updates & Research",
+            pageSubtitle:"Follow the latest studies and innovations about celiac disease",
+            readMore:"Read more"}
+    };
+
+    function renderNews(lang){
+      // تغيير العناوين
+      document.getElementById("pageTitle").textContent = translations[lang].pageTitle;
+      document.getElementById("pageSubtitle").textContent = translations[lang].pageSubtitle;
+
+      const newsList = document.getElementById("news-list");
+      newsList.innerHTML = ""; // مسح المحتوى القديم
+
+      newsData.forEach(item=>{
+        const card = document.createElement("div");
+        card.className = "news-card";
+        card.innerHTML = `
+          <h3>${item[lang].title}</h3>
+          <p>${item[lang].text}</p>
+          <a href="${item[lang].link}" target="_blank">${translations[lang].readMore}</a>
+        `;
+        newsList.appendChild(card);
+      });
+
+      // تغيير اتجاه الصفحة
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    }
+
+    // تحميل أول مرة بالعربية
+    renderNews('ar');
+  </script>
+</body>
+</html>

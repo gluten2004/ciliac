@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خريطة المواقع</title>
+
+  <!-- خريطة Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <!-- خط جميل من Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #2196f3;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 22px;
+    }
+
+    header a {
+      text-decoration: none;
+      background-color: #fff;
+      color: #2196f3;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    header a:hover {
+      background-color: #e3f2fd;
+    }
+
+    #map {
+      height: 90vh;
+      width: 100%;
+      margin-top: 70px; /* لإبعاد الخريطة تحت الترويسة */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .leaflet-popup-content {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .leaflet-popup-content a {
+      color: #2196f3;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .leaflet-popup-content a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 18px;
+      }
+      .leaflet-popup-content {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>خريطة المواقع</h1>
+    <a href="index.html">الرئيسية</a>
+  </header>
+
+  <div id="map"></div>
+
+  <script>
+    var map = L.map('map').setView([36.75, 3.06], 10);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+
+    var locations = [
+      { name: "Maison Goussem Gluten Free", lat: 36.7675, lon: 3.0419, link: "https://www.facebook.com/Maison-Goussem-Gluten-Free-102886828683687/", address: "حي السيلاست, Béni Messous" },
+      { name: "Délices sans Gluten El-Bahdja", lat: 36.766, lon: 3.0419, phone: "0667 10 60 81", link: "https://www.facebook.com/Elbahdjasansgluten/", address: "Alger centre, Algiers, Algeria" },
+      { name: "Vie Sans Gluten", lat: 36.763, lon: 3.0505, phone: "793884611", link: "https://www.facebook.com/viesansgluten1/", address: "Bd Colonel Amirouche, Algiers 16000" },
+      { name: "Gluten Free Diet", lat: 36.710, lon: 2.9915, phone: "0698 26 56 03", link: "https://www.facebook.com/glutenfreediet0?mibextid=ZbWKwL", address: "Baba hassen 16081 Baba Hassen, Algérie" },
+      { name: "Benna sans gluten", lat: 36.696, lon: 3.042, phone: "0540 88 27 39", link: "https://www.facebook.com/Benna-sans-gluten-103005454792908/", address: "Draria, Alger" },
+      { name: "Biorégime", lat: 35.004, lon: -1.316, phone: "0557 30 78 01", link: "https://maps.app.goo.gl/NCSXZ7W3zyNymWMeA", address: "Tlemcen, Algeria" },
+      { name: "Le Gastronome sans gluten", lat: 35.730, lon: -0.620, phone: "697722702", address: "Bir El Djir" },
+      { name: "S&R sans gluten", lat: 36.781, lon: 3.000, phone: "656757040", link: "https://www.facebook.com/SandRsansgluten/", address: "Bouzareah" },
+      { name: "Superrette Le bon prix", lat: 36.736, lon: 3.086, phone: "774100095", link: "http://www.promochoclebonprix.com/", address: "El Harrach" },
+      { name: "Mini Market BBH", lat: 36.720, lon: 2.935, address: "Baba Hassen" },
+      { name: "Mini Market Ihcene", lat: 36.721, lon: 2.940, phone: "663858191", link: "https://web.facebook.com/Ihcene-sans-gluten-123058952429563/", address: "Blida" },
+      { name: "Corail Rouge Market", lat: 35.060, lon: -1.340, phone: "556166638", link: "https://corailmarket.com/", address: "Maghnia, Tlemcen" },
+      { name: "Dar elkarim", lat: 36.755, lon: 2.991, phone: "0540 84 94 40", link: "https://www.facebook.com/darelkarim1/", address: "Ouled Fayet, Algiers" },
+      { name: "niema la maison du sans gluten", lat: 36.755, lon: 2.991, phone: "0697722702", address: "P5JH+GW9, Bab Ezzouar" },
+      { name: "Magasin habibou sans gluten", lat: 36.755, lon: 2.991, phone: "0771 130 562", link: "https://www.facebook.com/Habibou-Gluten-free-827559634088059/", address: "Bordj El Bahri" },
+      { name: "Amissan -gluten free-", lat: 36.755, lon: 2.991, phone: "0781 566 426", link: "https://www.facebook.com/Ma-petite-cuisine-sans-gluten-104073014486557/", address: "Bouzareah" }
+    ];
+
+    var markers = L.layerGroup();
+
+    locations.forEach(function(location, index) {
+      let adjustedLat = location.lat + (index * 0.0001);
+      let adjustedLon = location.lon + (index * 0.0001);
+
+      let marker = L.marker([adjustedLat, adjustedLon]).bindPopup(`
+        <b>${location.name}</b><br>
+        📍 ${location.address}<br>
+        📞 ${location.phone || 'غير متوفر'}<br>
+        ${location.link ? `<a href="${location.link}" target="_blank">عرض على الخريطة</a>` : ''}
+      `);
+      markers.addLayer(marker);
+    });
+
+    markers.addTo(map);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🥗 التغذية المتوازنة - مرض السيلياك</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
+    body {background:#f6faf7; color:#333; line-height:1.8; padding:30px 15px;}
+    h1 {text-align:center; color:#2e7d32; margin-bottom:25px; font-size:2rem;}
+    .intro {max-width:800px; margin:auto; text-align:center; color:#555; margin-bottom:20px; font-size:1.1rem;}
+    .note {max-width:800px; margin:auto; text-align:center; color:#444; margin-bottom:40px; font-size:1rem; font-style:italic;}
+    .tips {max-width:800px; margin:auto; display:grid; gap:20px;}
+    .tip {background:#fff; padding:20px 25px; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.05); border-left:6px solid #66bb6a;}
+    .tip h3 {color:#2e7d32; margin-bottom:8px; font-size:1.2rem;}
+    .back-btn {display:block; width:fit-content; margin:40px auto 0; text-decoration:none; background:#2e7d32; color:#fff; padding:12px 25px; border-radius:10px; transition:0.3s;}
+    .back-btn:hover {background:#1b5e20;}
+    .lang-switch {text-align:center; margin-bottom:25px;}
+    .lang-switch button {margin:0 5px; padding:8px 15px; border:none; border-radius:10px; background:#66bb6a; color:#fff; cursor:pointer; transition:0.3s;}
+    .lang-switch button:hover {background:#2e7d32;}
+  </style>
+</head>
+<body>
+
+  <h1 id="title">🥗 التغذية المتوازنة</h1>
+  <p class="intro" id="intro">
+    التغذية المتوازنة هي مفتاح الحفاظ على صحة الجسم وتقوية المناعة.
+  </p>
+  <p class="note" id="note">
+    النظام الغذائي الخالي من الغلوتين ضروري لمرضى السيلياك لتجنب الضرر المعوي والمضاعفات الصحية.
+  </p>
+
+  <div class="lang-switch">
+    <button onclick="setLang('ar')">العربية</button>
+    <button onclick="setLang('fr')">Français</button>
+    <button onclick="setLang('en')">English</button>
+  </div>
+
+  <div class="tips" id="tips"></div>
+
+  <a href="eee.html" class="back-btn" id="back-btn">⬅ العودة للصفحة الرئيسية</a>
+
+  <script>
+    const tipsData = {
+      ar: {
+        title: "🥗 التغذية المتوازنة",
+        intro: "التغذية المتوازنة لمرضى السيلياك ضرورية للحفاظ على الصحة وتجنب مضاعفات سوء الامتصاص. اتبع هذه النصائح من مختصين:",
+        note: "النظام الغذائي الخالي من الغلوتين ضروري لمرضى السيلياك لتجنب الضرر المعوي والمضاعفات الصحية.",
+        back: "⬅ العودة للصفحة الرئيسية",
+        tips: [
+          {h:"📖 قراءة الملصقات", p:"اقرأ دائمًا الملصقات للتأكد من أن المنتجات خالية من الغلوتين وتجنب التلوث المتبادل."},
+          {h:"🌱 التركيز على الأطعمة الطبيعية", p:"الخضر، الفواكه، اللحوم، السمك، والبيض آمنة بطبيعتها."},
+          {h:"🌾 اختيار الحبوب البديلة", p:"استعمل الأرز، الذرة، الكينوا، الحنطة السوداء والدخن بدل القمح والشعير."},
+          {h:"🥣 الاهتمام بالألياف", p:"أضف بذور الكتان، الشيا، والبقوليات لتعويض نقص الألياف."},
+          {h:"💊 الفيتامينات والمعادن", p:"مرضى السيلياك معرضون لنقص الحديد وفيتامين B12، استشر طبيبك حول المكملات."},
+          {h:"🍳 الطهو المنزلي", p:"حضّر وجباتك بنفسك لتفادي مخاطر التلوث بالغلوتين."},
+          {h:"🍽️ الأكل خارج المنزل", p:"اسأل دائمًا عن المكونات واختر مطاعم تقدم وجبات خالية من الغلوتين."},
+          {h:"👩‍⚕️ المتابعة الطبية", p:"تابع بانتظام مع أخصائي تغذية لمراقبة صحتك وتفادي النقص الغذائي."}
+        ]
+      },
+      fr: {
+        title: "🥗 Nutrition équilibrée",
+        intro: "Une alimentation équilibrée est essentielle pour les personnes atteintes de la maladie cœliaque. Voici des conseils d’experts :",
+        note: "Un régime sans gluten est essentiel pour éviter les dommages intestinaux et les complications chez les personnes atteintes de la maladie cœliaque.",
+        back: "⬅ Retour à la page d’accueil",
+        tips: [
+          {h:"📖 Lire les étiquettes", p:"Vérifiez toujours que les produits sont sans gluten et évitez la contamination croisée."},
+          {h:"🌱 Favoriser les aliments naturels", p:"Les légumes, fruits, viandes, poissons et œufs sont naturellement sans gluten."},
+          {h:"🌾 Choisir des céréales alternatives", p:"Utilisez le riz, maïs, quinoa, sarrasin et millet à la place du blé et de l’orge."},
+          {h:"🥣 Apport en fibres", p:"Ajoutez des graines de lin, chia et légumineuses pour compenser le manque de fibres."},
+          {h:"💊 Vitamines et minéraux", p:"Les cœliaques risquent des carences en fer et vitamine B12, demandez conseil à votre médecin."},
+          {h:"🍳 Cuisine maison", p:"Préparez vos repas vous-même pour réduire les risques de contamination."},
+          {h:"🍽️ Manger à l’extérieur", p:"Renseignez-vous toujours sur les ingrédients et choisissez des restaurants avec options sans gluten."},
+          {h:"👩‍⚕️ Suivi médical", p:"Consultez régulièrement un diététicien pour assurer un équilibre nutritionnel."}
+        ]
+      },
+      en: {
+        title: "🥗 Balanced Nutrition",
+        intro: "Balanced nutrition is essential for people with celiac disease. Follow these expert tips:",
+        note: "A gluten-free diet is necessary for celiac patients to prevent intestinal damage and health complications.",
+        back: "⬅ Back to Home Page",
+        tips: [
+          {h:"📖 Read labels", p:"Always check labels to ensure products are gluten-free and avoid cross-contamination."},
+          {h:"🌱 Focus on natural foods", p:"Vegetables, fruits, meat, fish, and eggs are naturally gluten-free."},
+          {h:"🌾 Choose alternative grains", p:"Use rice, corn, quinoa, buckwheat, and millet instead of wheat and barley."},
+          {h:"🥣 Fiber intake", p:"Add flaxseeds, chia seeds, and legumes to compensate for low fiber intake."},
+          {h:"💊 Vitamins and minerals", p:"Celiacs are prone to iron and B12 deficiencies, consult your doctor about supplements."},
+          {h:"🍳 Home cooking", p:"Prepare meals at home to reduce gluten contamination risks."},
+          {h:"🍽️ Eating out", p:"Always ask about ingredients and choose restaurants with gluten-free options."},
+          {h:"👩‍⚕️ Medical follow-up", p:"See a dietitian regularly to prevent nutritional deficiencies."}
+        ]
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById("title").innerText = tipsData[lang].title;
+      document.getElementById("intro").innerText = tipsData[lang].intro;
+      document.getElementById("note").innerText = tipsData[lang].note;
+      document.getElementById("back-btn").innerText = tipsData[lang].back;
+
+      const tipsContainer = document.getElementById("tips");
+      tipsContainer.innerHTML = "";
+      tipsData[lang].tips.forEach(tip => {
+        const div = document.createElement("div");
+        div.className = "tip";
+        div.innerHTML = `<h3>${tip.h}</h3><p>${tip.p}</p>`;
+        tipsContainer.appendChild(div);
+      });
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    }
+
+    // تحميل العربية افتراضيًا
+    setLang('ar');
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>الراحة النفسية - CILIAC.DZ</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      color: #333;
+      line-height: 1.8;
+      padding: 40px 15px;
+    }
+    header { text-align: center; margin-bottom: 40px; color: #333; }
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; opacity: 0.9; }
+    .section {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 25px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(6px);
+    }
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ff7b89;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .section ul { margin-top: 10px; padding-left: 20px; }
+    .section ul li { margin-bottom: 8px; }
+    .lang-switch { text-align: center; margin-bottom: 25px; }
+    .lang-switch button {
+      margin: 0 5px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 10px;
+      background: #ff7b89cc;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .lang-switch button:hover { background: #ff7b89; }
+    .contact-box {
+      background: #fff4f4;
+      padding: 25px;
+      border-radius: 20px;
+      margin-top: 40px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .contact-box h3 { margin-bottom: 15px; color: #ff4d6d; }
+    .contact-box input, .contact-box textarea {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    .contact-box button {
+      padding: 10px 25px;
+      background: #ff4d6d;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      text-decoration: none;
+      background: #ff8ac2;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+    .back-btn:hover { background: #1b5e20; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">🧘‍♀️ الراحة النفسية</h1>
+    <p id="subtitle">أساس التوازن والسعادة اليومية</p>
+  </header>
+
+  <div class="lang-switch">
+    <button onclick="setLang('ar')">العربية</button>
+    <button onclick="setLang('fr')">Français</button>
+    <button onclick="setLang('en')">English</button>
+  </div>
+
+  <section class="section">
+    <h2 id="sec1-title">💖 أهمية الراحة النفسية</h2>
+    <p id="sec1-text">
+      الحفاظ على الصحة النفسية يعزز المناعة، يحسّن التركيز، ويزيد من الشعور بالرضا والسعادة في الحياة اليومية.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2 id="sec2-title">🌸 طرق تحقيقها</h2>
+    <p id="sec2-text">
+      خصص وقتًا للاسترخاء، مارس التأمل أو القراءة، وابتعد عن مصادر التوتر كلما كان ذلك ممكنًا.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2 id="sec3-title">🧘‍♀️ نصائح نفسية لمرضى السيلياك</h2>
+    <ul id="sec3-list"></ul>
+  </section>
+
+  <section class="section">
+    <h2 id="sec4-title">🧒 نصائح نفسية للأطفال مرضى السيلياك</h2>
+    <ul id="sec4-list"></ul>
+  </section>
+
+  <!-- صندوق الاتصال -->
+  <div class="contact-box">
+    <h2>📩تواصل مع طبيبة نفسية </h2>
+    <form id="contact-form" onsubmit="sendMessage(event)">
+      <input type="text" name="user_name" placeholder="اسمك" required>
+      <input type="email" name="user_email" placeholder="بريدك الإلكتروني" required>
+      <textarea name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+      <button type="submit">إرسال</button>
+    </form>
+  </div>
+
+  <a href="eee.html" class="back-btn">⬅ العودة للصفحة الرئيسية</a>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function(){ emailjs.init("FsDQXk77KnLUGVAE9"); })();
+
+    const content = {
+      ar: {
+        title: "🧘‍♀️ الراحة النفسية",
+        subtitle: "أساس التوازن والسعادة اليومية",
+        sec1_title: "💖 أهمية الراحة النفسية",
+        sec1_text: "الحفاظ على الصحة النفسية يعزز المناعة، يحسّن التركيز، ويزيد من الشعور بالرضا والسعادة في الحياة اليومية.",
+        sec2_title: "🌸 طرق تحقيقها",
+        sec2_text: "خصص وقتًا للاسترخاء، مارس التأمل أو القراءة، وابتعد عن مصادر التوتر كلما كان ذلك ممكنًا.",
+        sec3_title: "🧘‍♀️ نصائح نفسية لمرضى السيلياك",
+        sec3_list: [
+          "تقبّل التشخيص كجزء من نمط حياة جديد.",
+          "مارس تمارين التنفس أو اليوغا لتقليل القلق.",
+          "تثقف حول المرض لتقليل الخوف من الأطعمة.",
+          "تجنب العزلة وشارك في المناسبات بوجباتك الخاصة.",
+          "دوّن مشاعرك واكتشف ما يسبب لك التوتر.",
+          "احتفل بإنجازاتك الصغيرة.",
+          "استشر مختصًا نفسيًا عند الحاجة.",
+          "مارس الهوايات الممتعة.",
+          "تجنب التفكير المفرط.",
+          "ابنِ روتينًا يوميًا متوازنًا."
+        ],
+        sec4_title: "🧒 نصائح نفسية للأطفال مرضى السيلياك",
+        sec4_list: [
+          "اشرح للطفل مرضه بلغة بسيطة.",
+          "قدّم أطعمة بديلة لذيذة وخالية من الغلوتين.",
+          "علّمه كيف يختار أكلاً آمنًا بنفسه.",
+          "امدحه عند التزامه بالنظام الغذائي.",
+          "حضّر له وجبات خاصة في المناسبات.",
+          "أشركه في تحضير الأكل الخالي من الغلوتين.",
+          "شجّعه على لقاء أطفال مصابين مثله.",
+          "انتبه لعلامات الحزن عنده وتحدث معه.",
+          "استخدم قصص وألعاب لشرح المرض.",
+          "شاركوه العائلة نفس الأكل أحيانًا."
+        ]
+      },
+      fr: {
+        title: "🧘‍♀️ Bien-être mental",
+        subtitle: "La base de l’équilibre et du bonheur quotidien",
+        sec1_title: "💖 Importance du bien-être mental",
+        sec1_text: "Préserver la santé mentale renforce l’immunité, améliore la concentration et augmente le sentiment de satisfaction.",
+        sec2_title: "🌸 Comment y parvenir",
+        sec2_text: "Prenez du temps pour vous détendre, pratiquez la méditation ou la lecture, et éloignez-vous des sources de stress.",
+        sec3_title: "🧘‍♀️ Conseils psychologiques pour les patients cœliaques",
+        sec3_list: [
+          "Accepter le diagnostic comme un nouveau mode de vie.",
+          "Pratiquer la respiration profonde ou le yoga pour réduire l’anxiété.",
+          "S’informer sur la maladie pour diminuer la peur.",
+          "Éviter l’isolement et participer aux événements avec vos propres repas.",
+          "Tenir un journal de ses émotions.",
+          "Célébrer les petites réussites.",
+          "Consulter un psychologue si nécessaire.",
+          "Pratiquer des hobbies agréables.",
+          "Éviter la sur-analyse.",
+          "Construire une routine équilibrée."
+        ],
+        sec4_title: "🧒 Conseils psychologiques pour les enfants cœliaques",
+        sec4_list: [
+          "Expliquer la maladie avec des mots simples.",
+          "Proposer des aliments alternatifs savoureux.",
+          "Apprendre à l’enfant à choisir des repas sûrs.",
+          "Le féliciter quand il respecte le régime.",
+          "Préparer des repas spéciaux lors des fêtes.",
+          "L’impliquer dans la préparation sans gluten.",
+          "L’encourager à rencontrer d’autres enfants malades.",
+          "Observer ses émotions et en parler avec lui.",
+          "Utiliser des histoires ou des jeux éducatifs.",
+          "Partager parfois les mêmes repas sans gluten."
+        ]
+      },
+      en: {
+        title: "🧘‍♀️ Mental Well-being",
+        subtitle: "The foundation of balance and daily happiness",
+        sec1_title: "💖 Importance of mental health",
+        sec1_text: "Maintaining mental health strengthens immunity, improves focus and increases happiness and satisfaction.",
+        sec2_title: "🌸 How to achieve it",
+        sec2_text: "Take time to relax, practice meditation or reading, and stay away from stress sources whenever possible.",
+        sec3_title: "🧘‍♀️ Psychological tips for celiac patients",
+        sec3_list: [
+          "Accept the diagnosis as a new lifestyle.",
+          "Practice deep breathing or yoga to reduce anxiety.",
+          "Educate yourself about the disease.",
+          "Avoid isolation and join events with your own meals.",
+          "Write a journal about emotions.",
+          "Celebrate small achievements.",
+          "Consult a psychologist if needed.",
+          "Enjoy hobbies and fun activities.",
+          "Avoid overthinking.",
+          "Build a balanced daily routine."
+        ],
+        sec4_title: "🧒 Psychological tips for children with celiac",
+        sec4_list: [
+          "Explain the disease in simple words.",
+          "Offer tasty gluten-free alternatives.",
+          "Teach the child how to choose safe food.",
+          "Praise them when they follow the diet.",
+          "Prepare special meals for parties.",
+          "Involve them in gluten-free cooking.",
+          "Encourage meeting other celiac kids.",
+          "Watch for sadness and talk about feelings.",
+          "Use stories or games to explain the disease.",
+          "Share gluten-free meals as a family sometimes."
+        ]
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById('title').innerText = content[lang].title;
+      document.getElementById('subtitle').innerText = content[lang].subtitle;
+      document.getElementById('sec1-title').innerText = content[lang].sec1_title;
+      document.getElementById('sec1-text').innerText = content[lang].sec1_text;
+      document.getElementById('sec2-title').innerText = content[lang].sec2_title;
+      document.getElementById('sec2-text').innerText = content[lang].sec2_text;
+      document.getElementById('sec3-title').innerText = content[lang].sec3_title;
+      document.getElementById('sec4-title').innerText = content[lang].sec4_title;
+
+      const sec3List = document.getElementById('sec3-list');
+      sec3List.innerHTML = "";
+      content[lang].sec3_list.forEach(item => {
+        const li = document.createElement("li");
+        li.innerText = item;
+        sec3List.appendChild(li);
+      });
+
+      const sec4List = document.getElementById('sec4-list');
+      sec4List.innerHTML = "";
+      content[lang].sec4_list.forEach(item => {
+        const li = document.createElement("li");
+        li.innerText = item;
+        sec4List.appendChild(li);
+      });
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    }
+
+    function sendMessage(e) {
+      e.preventDefault();
+      emailjs.sendForm("service_ptohjh9", "template_47f40zo", "#contact-form")
+        .then(() => {
+          alert("✅ تم إرسال رسالتك بنجاح! 💌");
+          document.getElementById("contact-form").reset();
+        }, (error) => {
+          alert("❌ حدث خطأ، حاول مرة أخرى.");
+          console.log("FAILED...", error);
+        });
+    }
+
+    // لغة افتراضية
+    setLang('ar');
+  </script>
+</body>
+</html>

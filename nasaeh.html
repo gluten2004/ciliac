@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>نصائح للصحة</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #78e4ff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      color: #007c91;
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    #langSelect {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #fff;
+      margin-top: 10px;
+    }
+
+    .tips-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .tip-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .tip-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .tip-card h3 {
+      color: #00acc1;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .tip-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* قسم تواصل */
+    .contact-section {
+      max-width: 800px;
+      margin: 60px auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: #007c91;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .contact-section button {
+      padding: 10px 25px;
+      background: #00acc1;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .contact-section button:hover {
+      background: #007c91;
+    }
+     .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      text-decoration: none;
+      background: #05deff;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #1b5b5e;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="mainTitle">🌿 نصائح للصحة</h1>
+    <select id="langSelect">
+      <option value="ar">العربية</option>
+      <option value="fr">Français</option>
+      <option value="en">English</option>
+    </select>
+  </header>
+
+  <!-- 📝 قسم النصائح -->
+  <section class="tips-container">
+    <a class="tip-card" href="nutrition.html">
+      <h3 id="tip1Title">🥗 التغذية المتوازنة</h3>
+      <p id="tip1Text">حافظ على نظام غذائي صحي غني بالخضار والبروتين.</p>
+    </a>
+    <a class="tip-card" href="sport.html">
+      <h3 id="tip2Title">🏃‍♀️ ممارسة الرياضة</h3>
+      <p id="tip2Text">نشاط بدني منتظم يحسّن صحتك الجسدية والنفسية.</p>
+    </a>
+    <a class="tip-card" href="mental.html">
+      <h3 id="tip3Title">🧘‍♀️ راحة نفسية</h3>
+      <p id="tip3Text">خذ وقتًا للاسترخاء والتأمل لتقليل التوتر.</p>
+    </a>
+  </section>
+
+  <!-- 📩 قسم التواصل -->
+  <div class="contact-section">
+    <h2 id="contactTitle">📩 تواصل مع طبيبة تغذية</h2>
+    <form id="contact-form" onsubmit="sendMessage(event)">
+      <input type="text" name="user_name" placeholder="اسمك" required>
+      <input type="email" name="user_email" placeholder="بريدك الإلكتروني" required>
+      <textarea name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+      <button type="submit">إرسال</button>
+    </form>
+  </div>
+
+  <script>
+    const texts = {
+      ar: {
+        title: "🌿 نصائح للصحة",
+        tips: [
+          ["🥗 التغذية المتوازنة","حافظ على نظام غذائي صحي غني بالخضار والبروتين."],
+          ["🏃‍♀️ ممارسة الرياضة","نشاط بدني منتظم يحسّن صحتك الجسدية والنفسية."],
+          ["🧘‍♀️ راحة نفسية","خذ وقتًا للاسترخاء والتأمل لتقليل التوتر."]
+        ],
+        contact: { title: "📩 أرسل استفسارك" }
+      },
+      fr: {
+        title: "🌿 Conseils pour la santé",
+        tips: [
+          ["🥗 Nutrition équilibrée","Adoptez une alimentation riche en légumes et protéines."],
+          ["🏃‍♀️ Activité physique","Bougez régulièrement pour votre bien-être."],
+          ["🧘‍♀️ Bien-être mental","Prenez du temps pour vous détendre et méditer."]
+        ],
+        contact: { title: "📩 Envoyez votre question" }
+      },
+      en: {
+        title: "🌿 Health Tips",
+        tips: [
+          ["🥗 Balanced Nutrition","Maintain a healthy diet rich in vegetables and proteins."],
+          ["🏃‍♀️ Physical Activity","Stay active regularly for body and mind health."],
+          ["🧘‍♀️ Mental Wellbeing","Take time to relax and meditate to reduce stress."]
+        ],
+        contact: { title: "📩 Send your question" }
+      }
+    };
+
+    const mainTitle = document.getElementById('mainTitle');
+    const tip1Title = document.getElementById('tip1Title');
+    const tip2Title = document.getElementById('tip2Title');
+    const tip3Title = document.getElementById('tip3Title');
+    const tip1Text = document.getElementById('tip1Text');
+    const tip2Text = document.getElementById('tip2Text');
+    const tip3Text = document.getElementById('tip3Text');
+    const contactTitle = document.getElementById('contactTitle');
+    const langSelect = document.getElementById('langSelect');
+
+    function updateLang(lang){
+      const t = texts[lang];
+      mainTitle.textContent = t.title;
+      [tip1Title.textContent, tip2Title.textContent, tip3Title.textContent] = [t.tips[0][0], t.tips[1][0], t.tips[2][0]];
+      [tip1Text.textContent, tip2Text.textContent, tip3Text.textContent] = [t.tips[0][1], t.tips[1][1], t.tips[2][1]];
+      contactTitle.textContent = t.contact.title;
+    }
+
+    langSelect.addEventListener('change', () => {
+      updateLang(langSelect.value);
+      document.documentElement.lang = langSelect.value;
+      document.documentElement.dir = (langSelect.value === 'ar') ? 'rtl' : 'ltr';
+    });
+
+    updateLang('ar');
+  </script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("FsDQXk77KnLUGVAE9"); // Public Key
+    })();
+
+    function sendMessage(e) {
+      e.preventDefault();
+      emailjs.sendForm("service_ptohjh9", "template_47f40zo", "#contact-form")
+        .then(function(response) {
+          alert("✅ تم إرسال رسالتك بنجاح! 💌");
+          document.getElementById("contact-form").reset();
+        }, function(error) {
+          alert("❌ حدث خطأ، حاول مرة أخرى.");
+          console.log("FAILED...", error);
+        });
+    }
+  </script>
+  <a href="eee.html" class="back-btn">⬅ العودة للصفحة الرئيسية</a>
+
+</body>
+</html>

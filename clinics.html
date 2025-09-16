@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>العيادات والمختصون</title>
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Tahoma, sans-serif;}
+    body {background: linear-gradient(135deg,#e0f7fa,#f1f8ff);padding:40px 20px;color:#333;}
+    h1 {text-align:center;margin-bottom:40px;font-size:2rem;color:#0077b6;letter-spacing:1px;}
+    .lang-switch{text-align:center;margin-bottom:25px;}
+    .lang-switch button{margin:0 5px;padding:8px 15px;border:none;border-radius:10px;background:#00b4d8;color:#fff;cursor:pointer;transition:.3s;}
+    .lang-switch button:hover{background:#0077b6;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
+    .card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.08);transition:transform 0.3s ease, box-shadow 0.3s ease;display:flex;flex-direction:column;}
+    .card:hover{transform:translateY(-5px);box-shadow:0 10px 24px rgba(0,0,0,0.12);}
+    .card-header{background:#0096c7;color:#fff;padding:20px;text-align:center;}
+    .card-header img{width:80px;height:80px;border-radius:50%;border:3px solid #fff;margin-bottom:10px;object-fit:cover;background:#fff;}
+    .card-header h2{margin:0;font-size:1.3rem;}
+    .card-body{padding:20px;flex:1;}
+    .card-body p{margin-bottom:10px;font-size:0.95rem;line-height:1.6;}
+    .card-body p strong{color:#0077b6;}
+    .card-footer{display:flex;gap:10px;padding:20px;border-top:1px solid #eee;background:#f9f9f9;}
+    .btn{flex:1;background:#00b4d8;color:#fff;padding:10px;border-radius:10px;text-align:center;text-decoration:none;transition:background 0.3s ease;font-size:0.9rem;}
+    .btn:hover{background:#0077b6;}
+    .back-btn{display:block;width:fit-content;margin:40px auto 0;text-decoration:none;background:#92fffa;color:#fff;padding:12px 25px;border-radius:10px;transition:background 0.3s ease;}
+    .back-btn:hover{background:#1b5e20;}
+  </style>
+</head>
+<body>
+
+  <div class="lang-switch">
+    <button onclick="setLang('ar')">العربية</button>
+    <button onclick="setLang('fr')">Français</button>
+    <button onclick="setLang('en')">English</button>
+  </div>
+
+  <h1 id="pageTitle">العيادات والمختصون</h1>
+
+  <div class="grid" id="clinicsGrid">
+    <!-- سيتم توليد البطاقات ديناميكيًا -->
+  </div>
+
+  <a href="eee.html" class="back-btn" id="backBtn">⬅ العودة للصفحة الرئيسية</a>
+
+  <script>
+    const clinicsData = [
+      {
+        ar:{name:"عيادة الحياة", specialty:"أمراض الجهاز الهضمي", address:"الجزائر العاصمة، شارع ديدوش مراد", phone:"", map:"https://maps.google.com/?q=عيادة الحياة الجزائر", contact:"https://wa.me/213555555555"},
+        fr:{name:"Clinique Al Hayat", specialty:"Gastro-entérologie", address:"Alger, Rue Didouche Mourad", phone:"", map:"https://maps.google.com/?q=Clinique Al Hayat Alger", contact:"https://wa.me/213555555555"},
+        en:{name:"Al Hayat Clinic", specialty:"Gastroenterology", address:"Algiers, Didouche Mourad Street", phone:"", map:"https://maps.google.com/?q=Al Hayat Clinic Algiers", contact:"https://wa.me/213555555555"},
+        img:"https://i.pravatar.cc/100?img=12"
+      },
+      {
+        ar:{name:"د. أمينة بن يوسف", specialty:"تغذية علاجية", address:"وهران، وسط المدينة", phone:"", map:"https://maps.google.com/?q=وهران وسط المدينة", contact:"mailto:amina.nutrition@example.com"},
+        fr:{name:"Dr. Amina Ben Youssef", specialty:"Nutrition thérapeutique", address:"Oran, centre-ville", phone:"", map:"https://maps.google.com/?q=Oran centre-ville", contact:"mailto:amina.nutrition@example.com"},
+        en:{name:"Dr. Amina Ben Youssef", specialty:"Therapeutic Nutrition", address:"Oran, city center", phone:"", map:"https://maps.google.com/?q=Oran city center", contact:"mailto:amina.nutrition@example.com"},
+        img:"https://i.pravatar.cc/100?img=32"
+      },
+      {
+        ar:{name:"مركز التشخيص الحديث", specialty:"تحاليل طبية متقدمة", address:"قسنطينة، شارع عبان رمضان", phone:"", map:"https://maps.google.com/?q=قسنطينة شارع عبان رمضان", contact:"tel:+213777777777"},
+        fr:{name:"Centre de Diagnostic Moderne", specialty:"Analyses médicales avancées", address:"Constantine, Rue Abane Ramdane", phone:"", map:"https://maps.google.com/?q=Constantine Rue Abane Ramdane", contact:"tel:+213777777777"},
+        en:{name:"Modern Diagnostic Center", specialty:"Advanced Medical Tests", address:"Constantine, Abane Ramdane Street", phone:"", map:"https://maps.google.com/?q=Constantine Abane Ramdane Street", contact:"tel:+213777777777"},
+        img:"https://i.pravatar.cc/100?img=5"
+      }
+    ];
+
+    const translations = {
+      ar:{location:"📍 الموقع", contact:"💬 واتساب", back:"⬅ العودة للصفحة الرئيسية"},
+      fr:{location:"📍 Localisation", contact:"💬 WhatsApp", back:"⬅ Retour à la page principale"},
+      en:{location:"📍 Location", contact:"💬 WhatsApp", back:"⬅ Back to Home"}
+    };
+
+    function setLang(lang){
+      document.getElementById("pageTitle").textContent = (lang==='ar')?"العيادات والمختصون":(lang==='fr')?"Cliniques et spécialistes":"Clinics & Specialists";
+      document.getElementById("backBtn").textContent = translations[lang].back;
+
+      const grid = document.getElementById("clinicsGrid");
+      grid.innerHTML="";
+      clinicsData.forEach(c=>{
+        const card = document.createElement("div");
+        card.className="card";
+        card.innerHTML=`
+          <div class="card-header">
+            <img src="${c.img}" alt="${c[lang].name}">
+            <h2>${c[lang].name}</h2>
+          </div>
+          <div class="card-body">
+            <p><strong>${(lang==='ar')?'التخصص':'fr'==='fr'?'Spécialité':'Specialty'}:</strong> ${c[lang].specialty}</p>
+            <p><strong>${(lang==='ar')?'العنوان':'fr'==='fr'?'Adresse':'Address'}:</strong> ${c[lang].address}</p>
+            <p><strong>${(lang==='ar')?'الهاتف':'fr'==='fr'?'Téléphone':'Phone'}:</strong> ${c[lang].phone}</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="${c[lang].map}" target="_blank">${translations[lang].location}</a>
+            <a class="btn" href="${c[lang].contact}" target="_blank">${translations[lang].contact}</a>
+          </div>`;
+        grid.appendChild(card);
+      });
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang==='ar')?'rtl':'ltr';
+    }
+
+    setLang('ar');
+  </script>
+
+</body>
+</html>
