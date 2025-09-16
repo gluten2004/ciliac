@@ -369,39 +369,22 @@
     font-size: 1.25rem;
   }
 
-  .menu-toggle {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    user-select: none;
-    padding: 0.5rem;
-    z-index: 1200; /* فوق التغطية */
-  }
+ 
+  /* طبقة التغطية (مناسبة لجميع الأجهزة) */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;         /* تبدأ من أعلى الصفحة */
+  right: 0;
+  width: 100%;
+  height: 100%;   /* تغطي كامل الشاشة */
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
 
-  .menu-toggle div {
-    width: 28px;
-    height: 3.5px;
-    background-color: white;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-  }
-
-  /* طبقة التغطية */
-  .overlay {
-    display: none;
-    position: fixed;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    height: calc(100% - 70px);
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1000;
-  }
-
-  .overlay.active {
-    display: block;
-  }
+.overlay.active {
+  display: block;
+}
 
 /* قائمة منسدلة */
 .dropdown {
@@ -574,43 +557,6 @@
   font-weight: 600;
 }
 
-/* تجاوب الهاتف */
-@media (max-width: 600px) {
-  .counter { font-size: 2.2rem; }
-  .stat-item { padding: 22px 14px; border-radius: 14px; }
-  .stat-icon { width: 64px; height: 64px; }
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-}
-    /* يخلي الصور تتقلص مع الشاشة */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* يخلي النصوص تحت السيطرة في الهاتف */
-body {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-@media (max-width: 600px) {
-  body {
-    font-size: 14px;
-  }
-}
-/* إخفاء الشريط افتراضياً في الهاتف */
-.sidebar {
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-}
-
-/* لما يضيف له كلاس open يظهر */
-.sidebar.open {
-  transform: translateX(0);
-}
-
 
 /* إزالة الخلفية البيضاء نهائياً (قوية - تتجاوز قواعد أخرى) */
 .stats-health .stat-item {
@@ -664,49 +610,106 @@ body {
   box-shadow: 0 6px 14px rgba(0,0,0,0.3);
 }
 
-    /* زر القائمة (يظهر فقط في الهاتف) */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
-    .menu-toggle span {
-      width: 26px; height: 3px;
-      background: #fff; border-radius: 2px;
+   
+
+  img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
     }
 
-    /* إخفاء القائمة في الهاتف بشكل افتراضي */
-    
-  main {
-      flex-grow: 1;
+    /* الشريط الجانبي */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      color: #fff;
+      padding-top: 70px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* زر القائمة للهاتف */
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .menu-toggle span {
+      width: 30px;
+      height: 3.5px;
+      background: #333;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* المحتوى الرئيسي */
+    .content {
       max-width: 1100px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
+      margin: 0 auto;
+      padding: 100px 20px 40px;
       text-align: center;
     }
- nav a {
-  display: block;
-  width: 100%;
-  padding: 1.4rem 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  font-size: 1.25rem;
-}
-   .sidebar {
-       width: 250px; /* تأكد من أن العرض مناسب */
-       max-width: 80vw; /* العرض لا يتجاوز 80% من عرض الشاشة */
-   }
-      .content {
-       transition: margin-left 0.3s ease;
-   }
 
-   .sidebar-open .content {
-       margin-left: 250px; /* اجعل المحتوى يتحرك للجانب عند فتح القائمة */
-   }
-      .sidebar {
-       position: fixed;
-       z-index: 1000; /* فوق المحتوى */
-   }
+    .content h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .content img {
+      margin: 0 auto 1.5rem;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* استجابة الهاتف */
+    @media (max-width: 768px) {
+      .content h1 {
+        font-size: 1.8rem;
+      }
+
+      .content p {
+        font-size: 1rem;
+      }
+
+      .menu-toggle span {
+        background: #000;
+      }
+    }
 
    .content {
        position: relative;
@@ -1299,5 +1302,6 @@ overlay.addEventListener('click', () => {
 
 </body>
 </html>
+
 
 
