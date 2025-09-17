@@ -401,149 +401,156 @@
       menu.style.display = (menu.style.display === 'none') ? 'flex' : 'none';
     }
 
-    // Texts for all languages
-    const translations = {
-      ar: {
-        services: "خدماتنا",
-        about: "من نحن",
-        team: "الفريق",
-        contact: "اتصل بنا",
-        partners: "شركاؤنا",
-        heroTitle: "مرحبًا بكم في Ciliac.dz",
-        heroDesc: "منصتكم الرقمية الأولى لحياة خالية من الغلوتين وصحة أفضل",
-        heroBtn: "✨ اكتشف خدماتنا",
-        stat1: "مستخدم نشط",
-        stat2: "وصفة خالية من الغلوتين",
-        stat3: "عيادة متعاونة",
-        aboutTitle: "ما هي منصتنا",
-        aboutDesc: "منصتنا هي بيئة متكاملة تهدف إلى تقديم أفضل الخدمات الرقمية والتقنية في مجال التغذية الصحية.",
-        visionTitle: " 🌟 رؤيتنا للمستقبل",
-        visionText: " نسعى لأن نكون المرجع الرقمي الأول لكل الأشخاص الذين يحتاجون إلى حلول غذائية صحية وآمنة، مع الابتكار المستمر وتحسين جودة حياتهم من خلال خدماتنا الرقمية. ",
-        missionTitle : "🎯وظيفتنا",
-        missionText:"تقديم حلول رقمية متكاملة تسهل الوصول إلى منتجات وخدمات غذائية صحية وآمنة، مع ضمان تجربة مستخدم سلسة ومميزة لجميع من يعانون من حساسية تجاه الغلوتين أو بروتينات أخرى.",
-        objectifsTitle:"🚀أهدافنا",
-         objectifsText1:"توسيع نطاق خدماتنا الرقمية لتغطية أكبر عدد ممكن من الأشخاص الذين يعانون من حساسية تجاه الغلوتين أو بروتينات أخرى.",
-         objectifsText2:"تعزيز الشراكات مع مطاعم، مخابز، ومقدمي خدمات غذائية لضمان حلول أكثر أمانًا وصحة.",
-         objectifsText3:"تطوير تجربة المستخدم باستمرار وجعل الوصول للمعلومات والمنتجات أسهل وأكثر فاعلية.",
-         objectifsText4:"الالتزام بأعلى معايير الجودة والابتكار في جميع خدماتنا.",
-    
-        servicesTitle: "خدماتنا",
-        service1Title: "مواقع المطاعم والمخابز",
-        service1Desc: "نوفر خريطة تفاعلية تضم جميع المطاعم والمخابز الخالية من الغلوتين.",
-        service2Title: "قارئ رمز الاستجابة السريعة",
-        service2Desc: "يتيح للمستخدمين مسح الرموز على المنتجات الغذائية للتحقق من خلوها من الغلوتين.",
-        service3Title: "وصفات خالية من الغلوتين",
-        service3Desc: "نوفر وصفات صحية مع تعليمات مفصلة ومكونات متاحة محليًا.",
-        service4Title:" آخر البحوث والمستجدات ",
-        service4Desc:" نشارك أحدث الدراسات العلمية والمعلومات الموثوقة حول داء السيلياك وعلاقته بالتغذية والصحة، بهدف رفع الوعي ومواكبة التقدم الطبي في هذا المجال. ",
-        service5Title: "   العيادات والأطباء المختصون   ",
-        service5Desc:" نوفر دليلًا شاملاً للعيادات والأطباء المتخصصين في داء السيلياك في الجزائر، لتسهيل الوصول إلى الاستشارات الطبية والمتابعة الدقيقة للحالة الصحية. ",
-        service6Title:  "نصائح وإرشادات",
-        service6Desc:" نقدم نصائح يومية وإرشادات صحية تساعد مرضى داء السيلياك على التكيف مع نمط حياتهم الغذائي الجديد، والحفاظ على توازنهم الصحي والنفسي. ",
-        contactTitle: "تواصل معنا",
-        contactEmailTitle: "البريد الإلكتروني",
-        contactPhoneTitle: "الهاتف",
-        footerApp: "📲 تثبيت التطبيق متاح قريباً"
-      },
-      fr: {
-        services: "Nos Services",
-        about: "À propos",
-        team: "Équipe",
-        contact: "Contactez-nous",
-        partners: "Partenaires",
-        heroTitle: "Bienvenue sur Ciliac.dz",
-        heroDesc: "Votre plateforme numérique pour une vie sans gluten et une meilleure santé",
-        heroBtn: "✨ Découvrez nos services",
-        stat1: "Utilisateurs actifs",
-        stat2: "Recettes sans gluten",
-        stat3: "Cliniques partenaires",
-        aboutTitle: "Notre plateforme",
-        aboutDesc: "Notre plateforme fournit les meilleurs services numériques et techniques en nutrition santé.",
-         visionTitle: "notre vision au future 🌟 ",
-         visionText: "Nous visons à devenir la référence numérique pour les personnes recherchant des solutions alimentaires sûres et saines, en innovant constamment pour améliorer leur qualité de vie grâce à nos services.", 
-        missionTitle: "Notre mission🎯",
-         missionText:"Fournir des solutions numériques complètes facilitant l'accès à des produits et services alimentaires sains et sûrs, tout en garantissant une expérience utilisateur fluide et optimale pour les personnes sensibles au gluten ou à d'autres protéines.",
-         objectifsTitle:"Notre objectifs🚀",
-         objectifsText1:"Étendre nos services numériques pour toucher le plus grand nombre possible de personnes sensibles au gluten ou à d'autres protéines.",
-         objectifsText2:"Renforcer les partenariats avec les restaurants, boulangeries et prestataires alimentaires pour garantir des solutions plus sûres et saines.",
-         objectifsText3:"Améliorer continuellement l'expérience utilisateur, en facilitant l'accès aux informations et aux produits de manière efficace.",
-         objectifsText4 :"S'engager à respecter les normes les plus élevées de qualité et d'innovation dans tous nos services.",        
-
-        servicesTitle: "Nos Services",
-        service1Title: "Restaurants et boulangeries",
-        service1Desc: "Nous fournissons une carte interactive de tous les restaurants et boulangeries sans gluten.",
-        service2Title: "Lecteur QR Code",
-        service2Desc: "Permet de scanner les produits alimentaires pour vérifier qu'ils sont sans gluten.",
-        service3Title: "Recettes sans gluten",
-        service3Desc: "Nous proposons des recettes saines avec des instructions détaillées et des ingrédients locaux.",
-        service4Title:" Dernières recherches et actualités ",
-        service4Desc:" Nous partageons les dernières études scientifiques et informations fiables sur la maladie cœliaque et son lien avec l'alimentation et la santé, dans le but de sensibiliser le public et de suivre les progrès médicaux dans ce domaine.        . ",
-        service5Title: " Cliniques et médecins spécialisés  ",
-        service5Desc:"Nous fournissons un guide complet des cliniques et des médecins spécialisés dans la maladie cœliaque en Algérie, afin de faciliter l'accès aux consultations médicales et au suivi attentif de l'état de santé.  . ",
-        service6Title:  " Conseils et recommandations",
-        service6Desc:"  Nous proposons des conseils quotidiens et des recommandations de santé qui aident les patients atteints de la maladie cœliaque à s'adapter à leur nouveau mode de vie alimentaire et à maintenir leur équilibre physique et psychologique.  ",
-        
-        contactTitle: "Contactez-nous",
-        contactEmailTitle: "E-mail",
-        contactPhoneTitle: "Téléphone",
-        footerApp: "📲 Installation de l'application bientôt disponible"
-      },
-      en: {
-        services: "Services",
-        about: "About Us",
-        team: "Team",
-        contact: "Contact",
-        partners: "Partners",
-        heroTitle: "Welcome to Ciliac.dz",
-        heroDesc: "Your digital platform for a gluten-free life and better health",
-        heroBtn: "✨ Explore Our Services",
-        stat1: "Active Users",
-        stat2: "Gluten-Free Recipes",
-        stat3: "Partner Clinics",
-        aboutTitle: "Our Platform",
-        aboutDesc: "Our platform provides top digital and technical services in health nutrition.",
-       visionTitle: " Our vision for the future 🌟 ",
-         visionText: "Our aim is to be the leading digital platform for individuals seeking safe and healthy food solutions. We are committed to continuously innovating our services to improve the quality of our users' lives.",
-        missionTitle :  "Our mission🎯",   
-         missionText:"Deliver comprehensive digital solutions that make healthy and safe food products and services easily accessible, ensuring a smooth and exceptional user experience for those with gluten or other protein sensitivities.",
-          objectifsTitle :"Our Goals🚀",
-         objectifsText1:"Expand our digital services to reach as many individuals with gluten or other protein sensitivities as possible.",
-         objectifsText2:"Strengthen partnerships with restaurants, bakeries, and food service providers to ensure safer and healthier solutions.",
-         objectifsText3:"Continuously improve user experience, making access to information and products easier and more effective.",
-         objectifsText3 :"Commit to the highest standards of quality and innovation in all our services."
-        servicesTitle: "Services",
-        service1Title: "Restaurants & Bakeries",
-        service1Desc: "We provide an interactive map of all gluten-free restaurants and bakeries.",
-        service2Title: "QR Code Scanner",
-        service2Desc: "Allows users to scan food products to check they are gluten-free.",
-        service3Title: "Gluten-Free Recipes",
-        service3Desc: "We provide healthy recipes with detailed instructions and locally available ingredients.",
-        service4Title:" Latest research and developments",
-        service4Desc:"We share the latest scientific studies and reliable information about celiac disease and its relationship to nutrition and health, with the aim of raising awareness and keeping up with medical advances in this field. ",
-        service5Title: "Specialized clinics and doctors  ",
-        service5Desc:"We provide a comprehensive directory of clinics and doctors specializing in celiac disease in Algeria, to facilitate access to medical consultations and close monitoring of health conditions.",
-        service6Title:  " Tips and advice",
-        service6Desc:"  We provide daily tips and health advice to help celiac patients adapt to their new dietary lifestyle and maintain their physical and mental well-being. ",
-        
-        contactTitle: "Contact Us",
-        contactEmailTitle: "Email",
-        contactPhoneTitle: "Phone",
-        footerApp: "📲 App installation coming soon"
-      }
-    };
-
-    function setLanguage(lang) {
-      document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-      document.querySelectorAll('[data-key]').forEach(el => {
-        const key = el.getAttribute('data-key');
-        if(translations[lang][key]) el.innerText = translations[lang][key];
-      });
+<script>
+  // ✅ إظهار/إخفاء القائمة في الهاتف
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) {
+      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
     }
+  }
 
-    // Default language Arabic
-    setLanguage('ar');
-  </script>
+  // ✅ النصوص لكل اللغات
+  const translations = {
+    ar: {
+      services: "خدماتنا",
+      about: "من نحن",
+      team: "الفريق",
+      contact: "اتصل بنا",
+      partners: "شركاؤنا",
+      heroTitle: "مرحبًا بكم في Ciliac.dz",
+      heroDesc: "منصتكم الرقمية الأولى لحياة خالية من الغلوتين وصحة أفضل",
+      heroBtn: "✨ اكتشف خدماتنا",
+      stat1: "مستخدم نشط",
+      stat2: "وصفة خالية من الغلوتين",
+      stat3: "عيادة متعاونة",
+      aboutTitle: "ما هي منصتنا",
+      aboutDesc: "منصتنا هي بيئة متكاملة تهدف إلى تقديم أفضل الخدمات الرقمية والتقنية في مجال التغذية الصحية.",
+      visionTitle: "🌟 رؤيتنا للمستقبل",
+      visionText: "نسعى لأن نكون المرجع الرقمي الأول لكل الأشخاص الذين يحتاجون إلى حلول غذائية صحية وآمنة، مع الابتكار المستمر وتحسين جودة حياتهم من خلال خدماتنا الرقمية.",
+      missionTitle : "🎯 مهمتنا",
+      missionText:"تقديم حلول رقمية متكاملة تسهل الوصول إلى منتجات وخدمات غذائية صحية وآمنة، مع ضمان تجربة مستخدم سلسة ومميزة لجميع من يعانون من حساسية تجاه الغلوتين أو بروتينات أخرى.",
+      objectifsTitle:"🚀 أهدافنا",
+      objectifsText1:"توسيع نطاق خدماتنا الرقمية لتغطية أكبر عدد ممكن من الأشخاص الذين يعانون من حساسية تجاه الغلوتين أو بروتينات أخرى.",
+      objectifsText2:"تعزيز الشراكات مع مطاعم، مخابز، ومقدمي خدمات غذائية لضمان حلول أكثر أمانًا وصحة.",
+      objectifsText3:"تطوير تجربة المستخدم باستمرار وجعل الوصول للمعلومات والمنتجات أسهل وأكثر فاعلية.",
+      objectifsText4:"الالتزام بأعلى معايير الجودة والابتكار في جميع خدماتنا.",
+      servicesTitle: "خدماتنا",
+      service1Title: "مواقع المطاعم والمخابز",
+      service1Desc: "نوفر خريطة تفاعلية تضم جميع المطاعم والمخابز الخالية من الغلوتين.",
+      service2Title: "قارئ رمز الاستجابة السريعة",
+      service2Desc: "يتيح للمستخدمين مسح الرموز على المنتجات الغذائية للتحقق من خلوها من الغلوتين.",
+      service3Title: "وصفات خالية من الغلوتين",
+      service3Desc: "نوفر وصفات صحية مع تعليمات مفصلة ومكونات متاحة محليًا.",
+      service4Title:"آخر البحوث والمستجدات",
+      service4Desc:"نشارك أحدث الدراسات العلمية والمعلومات الموثوقة حول داء السيلياك وعلاقته بالتغذية والصحة.",
+      service5Title: "العيادات والأطباء المختصون",
+      service5Desc:"نوفر دليلًا شاملاً للعيادات والأطباء المتخصصين في داء السيلياك في الجزائر.",
+      service6Title:  "نصائح وإرشادات",
+      service6Desc:"نقدم نصائح يومية تساعد مرضى داء السيلياك على التكيف مع نمط حياتهم الغذائي الجديد.",
+      contactTitle: "تواصل معنا",
+      contactEmailTitle: "البريد الإلكتروني",
+      contactPhoneTitle: "الهاتف",
+      footerApp: "📲 تثبيت التطبيق متاح قريباً"
+    },
+
+    fr: {
+      services: "Nos Services",
+      about: "À propos",
+      team: "Équipe",
+      contact: "Contactez-nous",
+      partners: "Partenaires",
+      heroTitle: "Bienvenue sur Ciliac.dz",
+      heroDesc: "Votre plateforme numérique pour une vie sans gluten et une meilleure santé",
+      heroBtn: "✨ Découvrez nos services",
+      stat1: "Utilisateurs actifs",
+      stat2: "Recettes sans gluten",
+      stat3: "Cliniques partenaires",
+      aboutTitle: "Notre plateforme",
+      aboutDesc: "Notre plateforme fournit les meilleurs services numériques et techniques en nutrition santé.",
+      visionTitle: "🌟 Notre vision",
+      visionText: "Nous visons à devenir la référence numérique pour les personnes recherchant des solutions alimentaires sûres et saines.",
+      missionTitle: "🎯 Notre mission",
+      missionText:"Fournir des solutions numériques complètes facilitant l'accès à des produits et services alimentaires sains et sûrs.",
+      objectifsTitle:"🚀 Nos objectifs",
+      objectifsText1:"Étendre nos services numériques pour toucher le plus grand nombre possible de personnes sensibles au gluten.",
+      objectifsText2:"Renforcer les partenariats avec les restaurants et boulangeries.",
+      objectifsText3:"Améliorer continuellement l'expérience utilisateur.",
+      objectifsText4:"Respecter les normes les plus élevées de qualité et d'innovation.",
+      servicesTitle: "Nos Services",
+      service1Title: "Restaurants et boulangeries",
+      service1Desc: "Carte interactive de tous les restaurants et boulangeries sans gluten.",
+      service2Title: "Lecteur QR Code",
+      service2Desc: "Permet de scanner les produits alimentaires pour vérifier qu'ils sont sans gluten.",
+      service3Title: "Recettes sans gluten",
+      service3Desc: "Recettes saines avec des instructions détaillées et des ingrédients locaux.",
+      service4Title:"Dernières recherches et actualités",
+      service4Desc:"Nous partageons les dernières études scientifiques sur la maladie cœliaque.",
+      service5Title: "Cliniques et médecins spécialisés",
+      service5Desc:"Un guide complet des cliniques et médecins spécialisés dans la maladie cœliaque.",
+      service6Title:  "Conseils et recommandations",
+      service6Desc:"Conseils quotidiens pour aider les patients à s'adapter à leur nouveau mode de vie.",
+      contactTitle: "Contactez-nous",
+      contactEmailTitle: "E-mail",
+      contactPhoneTitle: "Téléphone",
+      footerApp: "📲 Installation bientôt disponible"
+    },
+
+    en: {
+      services: "Services",
+      about: "About Us",
+      team: "Team",
+      contact: "Contact",
+      partners: "Partners",
+      heroTitle: "Welcome to Ciliac.dz",
+      heroDesc: "Your digital platform for a gluten-free life and better health",
+      heroBtn: "✨ Explore Our Services",
+      stat1: "Active Users",
+      stat2: "Gluten-Free Recipes",
+      stat3: "Partner Clinics",
+      aboutTitle: "About Our Platform",
+      aboutDesc: "Our platform offers top digital and technical services in healthy nutrition.",
+      visionTitle: "🌟 Our Vision",
+      visionText: "We aim to be the #1 digital reference for safe and healthy food solutions.",
+      missionTitle: "🎯 Our Mission",
+      missionText:"Provide complete digital solutions for healthy and safe food services.",
+      objectifsTitle:"🚀 Our Goals",
+      objectifsText1:"Expand digital services to reach as many gluten-sensitive people as possible.",
+      objectifsText2:"Strengthen partnerships with restaurants and bakeries.",
+      objectifsText3:"Continuously improve the user experience.",
+      objectifsText4:"Commit to the highest standards of quality and innovation.",
+      servicesTitle: "Our Services",
+      service1Title: "Restaurants & Bakeries",
+      service1Desc: "Interactive map of all gluten-free restaurants and bakeries.",
+      service2Title: "QR Code Scanner",
+      service2Desc: "Scan food products to check if they are gluten-free.",
+      service3Title: "Gluten-Free Recipes",
+      service3Desc: "Healthy recipes with detailed instructions and local ingredients.",
+      service4Title:"Latest Research & News",
+      service4Desc:"Sharing the latest studies on celiac disease and health.",
+      service5Title: "Specialized Clinics & Doctors",
+      service5Desc:"A complete guide to specialized clinics and doctors in Algeria.",
+      service6Title:  "Tips & Advice",
+      service6Desc:"Daily tips to help celiac patients adapt to their new lifestyle.",
+      contactTitle: "Contact Us",
+      contactEmailTitle: "Email",
+      contactPhoneTitle: "Phone",
+      footerApp: "📲 App coming soon"
+    }
+  };
+
+  // ✅ تغيير اللغة
+  function setLanguage(lang) {
+    document.body.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (translations[lang][key]) {
+        el.innerText = translations[lang][key];
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
-
 
