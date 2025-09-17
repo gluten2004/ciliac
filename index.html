@@ -152,7 +152,77 @@
     .card:hover .icon, .card:focus-within .icon {
       transform: scale(1.2);
     }
-    
+     /* فريق العمل */
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2.5rem;
+      padding: 0 0.75rem;
+      justify-items: center;
+    }
+    .team-member {
+      background: var(--card-bg-light);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      box-shadow: 0 8px 24px rgba(13,148,136,0.15);
+      color: var(--primary);
+      text-align: center;
+      user-select: none;
+      cursor: default;
+      transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+      outline-offset: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    body.dark .team-member {
+      background: var(--card-bg-dark);
+      color: #a7f3d0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    }
+    .team-member:hover, .team-member:focus-within {
+      transform: translateY(-12px);
+      box-shadow:
+        0 24px 56px rgba(249,115,22,0.35),
+        0 10px 28px rgba(13,148,136,0.35);
+      outline: none;
+      cursor: pointer;
+    }
+    .team-member img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--secondary);
+      box-shadow: 0 6px 18px rgba(249,115,22,0.4);
+      user-select: none;
+      transition: border-color var(--transition);
+    }
+    body.dark .team-member img {
+      border-color: #fbbf24;
+      box-shadow: 0 6px 18px rgba(251,191,36,0.5);
+    }
+    .team-member h4 {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--secondary);
+      user-select: text;
+    }
+    body.dark .team-member h4 {
+      color: #fbbf24;
+    }
+    .team-member p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      user-select: text;
+      transition: color var(--transition);
+      margin: 0;
+      line-height: 1.4;
+    }
+    body.dark .team-member p {
+      color: var(--text-dark);
+    }
   </style>
 </head>
 <body dir="rtl">
@@ -223,19 +293,19 @@
 <section id="vision">
       <div class="cards-container">
         <div class="card">
-          <h3 data-i18n="visionTitle"><span class="icon" aria-hidden="true">🌟</span> رؤيتنا للمستقبل</h3>
-          <p data-i18n="visionText">نسعى لأن نكون المرجع الرقمي الأول لكل الأشخاص الذين يحتاجون إلى حلول غذائية صحية وآمنة، مع الابتكار المستمر وتحسين جودة حياتهم من خلال خدماتنا الرقمية.</p>
+          <h3 data-key="visionTitle"><span class="icon" aria-hidden="true">🌟</span> رؤيتنا للمستقبل</h3>
+          <p data-key="visionText">نسعى لأن نكون المرجع الرقمي الأول لكل الأشخاص الذين يحتاجون إلى حلول غذائية صحية وآمنة، مع الابتكار المستمر وتحسين جودة حياتهم من خلال خدماتنا الرقمية.</p>
         </div>
         <div class="card">
-          <h3 data-i18n="missionTitle"><span class="icon" aria-hidden="true">🎯</span> وظيفتنا</h3>
-          <p data-i18n="missionText">تقديم حلول رقمية متكاملة تسهل الوصول إلى منتجات وخدمات غذائية صحية وآمنة، مع ضمان تجربة مستخدم سلسة ومميزة لجميع من يعانون من حساسية تجاه الغلوتين أو بروتينات أخرى.</p>
+          <h3 data-key="missionTitle"><span class="icon" aria-hidden="true">🎯</span> وظيفتنا</h3>
+          <p data-key="missionText">تقديم حلول رقمية متكاملة تسهل الوصول إلى منتجات وخدمات غذائية صحية وآمنة، مع ضمان تجربة مستخدم سلسة ومميزة لجميع من يعانون من حساسية تجاه الغلوتين أو بروتينات أخرى.</p>
         </div>
         <div class="card">
-          <h3 data-i18n="objectifsTitle"><span class="icon" aria-hidden="true">🚀</span> أهدافنا</h3>
-          <p data-i18n="objectifsText1">توسيع نطاق خدماتنا الرقمية لتغطية أكبر عدد ممكن من الأشخاص الذين يعانون من حساسية تجاه الغلوتين أو بروتينات أخرى.</p>
-          <p data-i18n="objectifsText2">تعزيز الشراكات مع مطاعم، مخابز، ومقدمي خدمات غذائية لضمان حلول أكثر أمانًا وصحة.</p>
-          <p data-i18n="objectifsText3">تطوير تجربة المستخدم باستمرار وجعل الوصول للمعلومات والمنتجات أسهل وأكثر فاعلية.</p>
-          <p data-i18n="objectifsText4">الالتزام بأعلى معايير الجودة والابتكار في جميع خدماتنا.</p>
+          <h3 data-key="objectifsTitle"><span class="icon" aria-hidden="true">🚀</span> أهدافنا</h3>
+          <p data-key="objectifsText1">توسيع نطاق خدماتنا الرقمية لتغطية أكبر عدد ممكن من الأشخاص الذين يعانون من حساسية تجاه الغلوتين أو بروتينات أخرى.</p>
+          <p data-key="objectifsText2">تعزيز الشراكات مع مطاعم، مخابز، ومقدمي خدمات غذائية لضمان حلول أكثر أمانًا وصحة.</p>
+          <p data-key="objectifsText3">تطوير تجربة المستخدم باستمرار وجعل الوصول للمعلومات والمنتجات أسهل وأكثر فاعلية.</p>
+          <p data-key="objectifsText4">الالتزام بأعلى معايير الجودة والابتكار في جميع خدماتنا.</p>
         </div>
       </div>
     </section>
@@ -270,7 +340,7 @@
     </div>
   </section>
 <section id="partners">
-      <h1 data-i18n="partners">الشركاء</h1>
+      <h1 data-key="partners">الشركاء</h1>
       <div class="partners-container">
         <img src="https://scontent.falg7-2.fna.fbcdn.net/v/t39.30808-6/327351567_785614523232055_8584176448031614703_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGL-NRr2VXr8f44m4I5FOfdIx4AdamOLVUjHgB1qY4tVYPgWYFWlx4HvFR-irtLZuLBEWvlWqv50tFlkMzih58W&_nc_ohc=NDUpI9hVLFMQ7kNvwHgulHO&_nc_oc=Adk1dLU6BCsZ6vWpOnugbaXJvRc5LSkT-SeLqSCUAxPyq3Tf_kkU5YrxNlXwRd_TZV8&_nc_zt=23&_nc_ht=scontent.falg7-2.fna&_nc_gid=jVCTNuJ8iq855gP17EKU9A&oh=00_AfbjXbI8dKBLITfK7dFQ5eDMWCQ8npjcih0vjzTT5D7TCw&oe=68CA5A09" alt="شريك 1" class="partner-logo" />
         <img src=" https://i0.wp.com/www.taibaoline.com/wp-content/uploads/2024/01/Remove-bg.ai_1751795712690.png?resize=1120%2C800&ssl=1" alt="شريك 2" class="partner-logo" />
@@ -278,6 +348,23 @@
         <img src="https://scontent.falg7-1.fna.fbcdn.net/v/t39.30808-1/305610927_585808723012251_3780088761367807519_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeFgNlW3-qM06y5TGgyoyXs6gpZIO1IZtEeClkg7Uhm0Rxdh4WGmUz54UiGKeXkpKnhwQD_XFlUkn3yxXFCwKrs-&_nc_ohc=zeyS8t9uZzgQ7kNvwEdiUhG&_nc_oc=AdmAy6yxqhp-BKqG3MFn47DwiFUP8fR7Xk8s35AQWf09vzaVuSLPtlKQ_tY66ASGmrU&_nc_zt=24&_nc_ht=scontent.falg7-1.fna&_nc_gid=Jymf9Z0DdLN4_wi4nwIKpQ&oh=00_AfZFXVc_1XKkCPmooVvKMS84eBFUnC15wEaa2ZtNVox2qg&oe=68CA7152" alt="شريك 4" class="partner-logo" />
       </div>
     </section>
+   <section id="team">
+ <h2 data-key="team">الفريق</h2>
+<div class="team-container">
+  <div class="team-member">
+    <img src="https://media.licdn.com/dms/image/v2/D4D03AQHhJAA7TEf62A/profile-displayphoto-shrink_400_400/B4DZeNilPNGsAo-/0/1750426343608?e=1760572800&v=beta&t=VoFzPSYX43PTh6LfaaZyAqwwLtNTRXaPA7CfKa1Nid4" alt="صورة العضو 1" title="صورة العضو 1" />
+    <h4 data-key="teamTitle1">العزري وزنة مليسة</h4>
+    <p data-key="teamText1">مدير المشروع</p>
+  </div>
+
+  <div class="team-member">
+    <img src="https://via.placeholder.com/100" alt="صورة العضو 2" />
+    <h4 data-key="teamTitle2">بروفيسورة عطو فوزية</h4>
+    <p data-key="teamText2">مسؤولة تسويق</p>
+  </div>
+</div>
+</section>
+
   <!-- Contact Section -->
  
 
@@ -458,4 +545,5 @@
   </script>
 </body>
 </html>
+
 
